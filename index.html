@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Don't Let the Pigeon Drive the Bus - Home Literacy Card</title>
+<style>
+  :root{
+    --cream:#FFF9EE; --white:#FFFFFF; --text:#3F3F3F; --text-soft:#9a9a9a;
+    --bus:#F26B3A; --sky:#6BB8D6; --sun:#FFC93C;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;word-break:keep-all;}
+  body{
+    font-family:'Segoe UI','Malgun Gothic',sans-serif;
+    background:var(--cream); color:var(--text); padding-bottom:40px;
+  }
+  .c-pink{--ac:#F27BA0;--ac-tint:#FDEAF1;--ink:#3F3F3F;}
+  .c-teal{--ac:#1FA6A6;--ac-tint:#E3F5F5;--ink:#FFFFFF;}
+  .c-red{--ac:#E5484D;--ac-tint:#FCE9EA;--ink:#FFFFFF;}
+  .c-purple{--ac:#8E6BCB;--ac-tint:#F1ECFA;--ink:#FFFFFF;}
+  .c-blue{--ac:#4C9BE8;--ac-tint:#E6F1FC;--ink:#FFFFFF;}
+  .c-orange{--ac:#F28C28;--ac-tint:#FEF1E2;--ink:#3F3F3F;}
+  .c-green{--ac:#6DB84A;--ac-tint:#EBF6E4;--ink:#2B3A2B;}
+  .c-yellow{--ac:#FFC93C;--ac-tint:#FFF6D9;--ink:#3F3F3F;}
+
+  .chrome-banner{
+    background:var(--text); color:#fff; text-align:center; font-size:13px;
+    padding:8px 12px; line-height:1.5;
+  }
+  .chrome-banner b{color:#FFC93C;}
+  header{background:var(--cream); text-align:center; padding:22px 16px 18px;}
+  .bus-row{font-size:30px;letter-spacing:6px;margin-bottom:8px;}
+  header .studio{font-size:12px;letter-spacing:1px;opacity:0.8;margin-bottom:4px;}
+  header .class-label{
+    font-size:13px;background:#fff;display:inline-block;padding:4px 12px;
+    border-radius:20px;margin-bottom:10px;font-weight:700;border:1px solid #f3e6cd;
+  }
+  header h1{font-size:22px;margin-bottom:2px;font-weight:800;line-height:1.25;}
+  header .author{font-size:13px;opacity:0.7;font-style:italic;margin-bottom:4px;}
+  header .subtitle{font-size:15px;font-weight:600;color:var(--bus);}
+  header .literacy-tag{font-size:10px;letter-spacing:0.5px;opacity:0.65;margin-top:6px;}
+
+  .key-question{
+    max-width:640px;margin:10px auto 0;padding:16px 18px;background:var(--white);
+    border-radius:14px;box-shadow:0 2px 6px rgba(0,0,0,0.05);
+  }
+  .kq-title{font-size:12px;color:var(--bus);font-weight:800;letter-spacing:1px;text-align:center;margin-bottom:12px;}
+  .kq-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .kq-col{border-radius:12px;padding:10px;text-align:center;}
+  .kq-col.basic{background:#FEF1E2;}
+  .kq-col.levelup{background:#E6F1FC;}
+  .kq-badge{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:0.5px;padding:2px 8px;border-radius:20px;margin-bottom:8px;}
+  .kq-col.basic .kq-badge{background:var(--bus);color:#fff;}
+  .kq-col.levelup .kq-badge{background:#4C9BE8;color:#fff;}
+  .kq-item{margin-bottom:10px;}
+  .kq-item:last-child{margin-bottom:0;}
+  .kq-en{font-size:13.5px;font-weight:800;line-height:1.3;}
+  .kq-kr{font-size:11px;color:var(--text-soft);margin:2px 0 5px;}
+  .kq-tts{border:none;padding:5px 10px;border-radius:7px;font-size:11px;font-weight:700;cursor:pointer;}
+  .kq-col.basic .kq-tts{background:var(--bus);color:#fff;}
+  .kq-col.levelup .kq-tts{background:#4C9BE8;color:#fff;}
+
+  .tab-bar{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;max-width:640px;margin:18px auto 0;padding:0 12px;}
+  .tab-bar.row2{margin-top:6px;}
+  .tab-bar.row3{grid-template-columns:repeat(2,1fr);margin-top:6px;}
+  .tab-btn{
+    padding:9px 4px;border:none;border-radius:12px 12px 0 0;background:var(--ac-tint);
+    color:var(--text);font-size:11.5px;font-weight:700;cursor:pointer;transition:0.2s;
+    text-align:center;line-height:1.3;
+  }
+  .tab-btn .tab-emoji{display:block;font-size:19px;margin-bottom:2px;}
+  .tab-btn.active{background:var(--ac);color:var(--ink);}
+
+  .tab-content{
+    display:none;max-width:640px;margin:10px auto 0;background:var(--white);
+    padding:20px 16px 30px;border-radius:16px;
+  }
+  .tab-content.active{display:block;}
+  .page-card{
+    background:var(--white);border:2px solid var(--ac);border-radius:16px;
+    padding:18px;box-shadow:0 2px 6px rgba(0,0,0,0.06);
+  }
+  .page-label{
+    display:inline-block;background:var(--ac);color:var(--ink);font-size:11.5px;
+    font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:10px;
+  }
+  .day-icon{font-size:52px;text-align:center;margin-bottom:8px;}
+  .word-en{font-size:22px;font-weight:800;text-align:center;margin-bottom:2px;line-height:1.3;}
+  .word-kr{font-size:14px;color:var(--text-soft);text-align:center;margin-bottom:10px;}
+  .btn-pair{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;}
+  .word-tts-btn{
+    background:var(--ac);color:var(--ink);border:none;padding:7px 14px;border-radius:8px;
+    font-size:12.5px;font-weight:700;font-style:italic;cursor:pointer;
+  }
+  .section-label{display:flex;align-items:center;gap:6px;font-weight:800;font-size:13px;margin:16px 0 8px;}
+
+  .book-box{background:var(--ac-tint);border:2px solid var(--ac);border-radius:12px;padding:12px 14px;}
+  .book-en{font-size:14.5px;font-weight:700;font-style:italic;line-height:1.5;margin-bottom:4px;}
+  .book-kr{font-size:12.5px;color:#666;line-height:1.6;margin-bottom:8px;}
+  .book-btn{
+    background:var(--ac);color:var(--ink);border:none;padding:7px 13px;border-radius:8px;
+    font-size:12px;font-weight:700;cursor:pointer;
+  }
+
+  .say-box{background:var(--cream);border-radius:12px;padding:6px 12px;}
+  .say-row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:8px 0;border-bottom:1px dashed #eadfc6;}
+  .say-row:last-child{border-bottom:none;}
+  .say-en{font-size:14px;font-weight:800;}
+  .say-kr{font-size:11.5px;color:var(--text-soft);margin-top:2px;}
+  .say-btn{
+    flex:0 0 auto;background:var(--ac);color:var(--ink);border:none;padding:7px 11px;
+    border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;
+  }
+  .scene-box{
+    background:var(--cream);border-left:4px solid var(--ac);padding:10px 12px;
+    border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;
+  }
+  .home-box{
+    background:var(--ac-tint);border:2px dashed var(--ac);border-radius:12px;
+    padding:12px 14px;font-size:13px;line-height:1.7;margin-top:14px;
+  }
+  .home-label{
+    display:inline-block;background:var(--ac);color:var(--ink);font-size:12px;font-weight:700;
+    padding:4px 10px;border-radius:6px;margin-bottom:8px;
+  }
+  .word-bank{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin:10px 0 2px;}
+  .word-chip{
+    background:var(--white);font-size:12.5px;font-weight:700;padding:5px 11px;
+    border-radius:20px;border:2px solid var(--ac);cursor:pointer;
+  }
+  .chip-note{text-align:center;font-size:11px;color:var(--text-soft);margin:4px 0 2px;}
+  .closing-quote{
+    text-align:center;font-style:italic;font-size:13px;margin-top:18px;padding-top:14px;
+    border-top:1px dashed var(--ac);
+  }
+  .activity-photo{width:100%;border-radius:14px;margin-bottom:14px;box-shadow:0 3px 8px rgba(0,0,0,0.1);}
+  .photo-placeholder{
+    text-align:center;font-size:56px;background:var(--ac-tint);border:2px dashed var(--ac);
+    border-radius:14px;padding:28px 12px;margin-bottom:14px;line-height:1.4;
+  }
+  .photo-placeholder span{font-size:13px;color:var(--text-soft);}
+  .activity-text{font-size:13.5px;line-height:1.8;}
+  .activity-text ol{padding-left:20px;}
+  .activity-text li{margin-bottom:6px;}
+  footer{text-align:center;font-size:11px;color:var(--text-soft);padding:20px;}
+</style>
+</head>
+<body>
+
+<div class="chrome-banner">
+  🌐 이 카드는 <b>Chrome 브라우저</b>에서 가장 잘 작동해요!<br>
+  (카카오톡 인앱 브라우저에서는<br>우측 상단 ⋮ 메뉴 → "Chrome으로 열기"를 눌러주세요)
+</div>
+
+<header>
+  <div class="bus-row">🐦 🚌</div>
+  <div class="studio">에릭칼아트잉글리쉬 · 동탄기산 스튜디오</div>
+  <div class="class-label">🚌 Week 1 · Home Review Card</div>
+  <h1>Don't Let the Pigeon<br>Drive the Bus!</h1>
+  <div class="author">by Mo Willems</div>
+  <div class="subtitle">Let Me Do It!</div>
+  <div class="literacy-tag">📖 가정 연계 리터러시 카드 · Home Literacy Card</div>
+</header>
+
+<div class="key-question">
+  <div class="kq-title">THIS WEEK'S KEY EXPRESSION</div>
+  <div class="kq-grid">
+    <div class="kq-col basic">
+      <div class="kq-badge">BASIC</div>
+      <div class="kq-item">
+        <div class="kq-en">"Let me drive the bus!"</div>
+        <div class="kq-kr">버스 운전하게 해줘요!</div>
+        <button class="kq-tts" onclick="speak('Let me drive the bus!')">🔊 듣기</button>
+      </div>
+    </div>
+    <div class="kq-col levelup">
+      <div class="kq-badge">LEVEL UP</div>
+      <div class="kq-item">
+        <div class="kq-en">"Can I ___?"</div>
+        <div class="kq-kr">~해도 될까요?</div>
+        <button class="kq-tts" onclick="speak('Can I drive the bus?')">🔊 듣기</button>
+      </div>
+      <div class="kq-item">
+        <div class="kq-en">"My dream is to ___."</div>
+        <div class="kq-kr">내 꿈은 ~하는 거예요.</div>
+        <button class="kq-tts" onclick="speak('My dream is to drive a bus.')">🔊 듣기</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="tab-bar">
+  <button class="tab-btn c-pink active" data-tab="p1" onclick="showTab('p1', this)"><span class="tab-emoji">🍭</span>Sweets</button>
+  <button class="tab-btn c-teal" data-tab="p2" onclick="showTab('p2', this)"><span class="tab-emoji">🧸</span>Toys</button>
+  <button class="tab-btn c-red" data-tab="p3" onclick="showTab('p3', this)"><span class="tab-emoji">🆘</span>Get down</button>
+</div>
+<div class="tab-bar row2">
+  <button class="tab-btn c-purple" data-tab="p4" onclick="showTab('p4', this)"><span class="tab-emoji">🎨</span>Paint</button>
+  <button class="tab-btn c-blue" data-tab="p5" onclick="showTab('p5', this)"><span class="tab-emoji">🚪</span>Get on</button>
+  <button class="tab-btn c-orange" data-tab="p6" onclick="showTab('p6', this)"><span class="tab-emoji">🚌</span>Drive the bus</button>
+</div>
+<div class="tab-bar row3">
+  <button class="tab-btn c-green" data-tab="p7" onclick="showTab('p7', this)"><span class="tab-emoji">🙅</span>No. Let me do it!</button>
+  <button class="tab-btn c-yellow" data-tab="art" onclick="showTab('art', this)"><span class="tab-emoji">🎨</span>Art Activity</button>
+</div>
+
+<div id="p1" class="tab-content c-pink active">
+  <div class="page-card">
+    <div class="page-label">🍭 1 · Sweets</div>
+    <div class="day-icon">🍭</div>
+    <div class="word-en">Let me have some sweets!</div>
+    <div class="word-kr">사탕 주세요!</div>
+    <div class="btn-pair"><button class="word-tts-btn" onclick="speak(this.dataset.t)" data-t="Let me have some sweets!">🔊 /lɛt miː hæv sʌm swiːts/</button></div>
+
+    <div class="section-label">📖 원서 문장</div>
+    <div class="book-box">
+      <div class="book-en">"Hey, can I drive the bus?"</div>
+      <div class="book-kr">저기, 내가 버스 운전해도 돼?</div>
+      <button class="book-btn" onclick="speak(this.dataset.t)" data-t="Hey, can I drive the bus?">🔊 문장 듣기</button>
+    </div>
+
+    <div class="section-label">🗣️ Say it!</div>
+    <div class="say-box">
+      <div class="say-row">
+        <div class="say-text"><div class="say-en">"Let me have some sweets!"</div><div class="say-kr">사탕 먹게 해주세요!</div></div>
+        <button class="say-btn" onclick="speak(this.dataset.t)" data-t="Let me have some sweets!">🔊</button>
+      </div>
+      <div class="say-row">
+        <div class="say-text"><div class="say-en">"Can I have some sweets?"</div><div class="say-kr">사탕 먹어도 돼요?</div></div>
+        <button class="say-btn" onclick="speak(this.dataset.t)" data-t="Can I have some sweets?">🔊</button>
+      </div>
+    </div>
+
+    <div class="section-label">😀 표정으로 표현해요</div>
+    <div class="scene-box">사탕가게 앞에서 간절한 눈으로 두 손을 모으고 <b>"Let me have some sweets!"</b> 해보세요. 그다음 아빠처럼 팔짱을 끼고 <b>"No way!"</b> 하는 단호한 표정도 지어봐요.</div>
+
+    <div class="home-box">
+      <div class="home-label">HOME TIP</div>
+      아이가 간식을 먹고 싶어 할 때 <b>"Let me have some ___!"</b> 대신 정중하게 <b>"Can I have some ___?"</b>도 함께 알려주세요.
+    </div>
+  </div>
+</div>
+
+<div id="p2" class="tab-content c-teal">
+  <div class="page-card">
+    <div class="page-label">🧸 2 · Toys</div>
+    <div class="day-icon">🧸</div>
+    <div class="word-en">Let me have some toys!</div>
+    <div class="word-kr">장난감 주세요!</div>
+    <div class="btn-pair"><button class="word-tts-btn" onclick="speak(this.dataset.t)" data-t="Let me have some toys!">🔊 /lɛt miː hæv sʌm tɔɪz/</button></div>
+
+    <div class="section-label">📖 원서 문장</div>
+    <div class="book-box">
+      <div class="book-en">"Please? I'll be careful."</div>
+      <div class="book-kr">부탁이야, 조심할게.</div>
+      <button class="book-btn" onclick="speak(this.dataset.t)" data-t="Please? I&#x27;ll be careful.">🔊 문장 듣기</button>
+    </div>
+
+    <div class="section-label">🗣️ Say it!</div>
+    <div class="say-box">
+      <div class="say-row">
+        <div class="say-text"><div class="say-en">"Let me have some toys!"</div><div class="say-kr">장난감 갖게 해주세요!</div></div>
+        <button class="say-btn" onclick="speak(this.dataset.t)" data-t="Let me have some toys!">🔊</button>
+      </div>
+      <div class="say-row">
+        <div class="say-text"><div class="say-en">"Please? I'll be careful."</div><div class="say-kr">부탁이에요, 조심할게요.</div></div>
+        <button class="say-btn" onclick="speak(this.dataset.t)" data-t="Please? I&#x27;ll be careful.">🔊</button>
+      </div>
+    </div>
+
+    <div class="section-label">😀 표정으로 표현해요</div>
+    <div class="scene-box">장난감 가게에서 눈이 동그래지고 입이 떡 벌어진 표정을 지어봐요. 안 된다는 말에 울상이 되는 표정까지 해보면 더 재미있어요.</div>
+
+    <div class="home-box">
+      <div class="home-label">HOME TIP</div>
+      장난감을 보며 <b>"Let me have some toys!"</b>를 외쳐보고, 이어서 <b>"Please?"</b>를 붙이는 연습을 해보세요.
+    </div>
+  </div>
+</div>
+
+<div id="p3" class="tab-content c-red">
+  <div class="page-card">
+    <div class="page-label">🆘 3 · Get down</div>
+    <div class="day-icon">🆘</div>
+    <div class="word-en">Let me get down!</div>
+    <div class="word-kr">내려가게 해줘요!</div>
+    <div class="btn-pair"><button class="word-tts-btn" onclick="speak(this.dataset.t)" data-t="Let me get down!">🔊 /lɛt miː ɡɛt daʊn/</button></div>
+
+    <div class="section-label">📖 원서 문장</div>
+    <div class="book-box">
+      <div class="book-en">"Uh-oh!"</div>
+      <div class="book-kr">(운전사가 돌아와 깜짝 놀란 비둘기) 어머, 이런!</div>
+      <button class="book-btn" onclick="speak(this.dataset.t)" data-t="Uh-oh!">🔊 문장 듣기</button>
+    </div>
+
+    <div class="section-label">🗣️ Say it!</div>
+    <div class="say-box">
+      <div class="say-row">
+        <div class="say-text"><div class="say-en">"Let me get down!"</div><div class="say-kr">내려가게 해줘요!</div></div>
+        <button class="say-btn" onclick="speak(this.dataset.t)" data-t="Let me get down!">🔊</button>
+      </div>
+      <div class="say-row">
+        <div class="say-text"><div class="say-en">"Help! Help!"</div><div class="say-kr">도와주세요!</div></div>
+        <button class="say-btn" onclick="speak(this.dataset.t)" data-t="Help! Help!">🔊</button>
+      </div>
+    </div>
+
+    <div class="section-label">😀 표정으로 표현해요</div>
+    <div class="scene-box">높은 곳에서 놀란 눈과 벌어진 입으로 <b>"Help! Help!"</b>를 외쳐요. 이어서 걱정하는(worried) 아빠의 표정도 지어봐요.</div>
+
+    <div class="home-box">
+      <div class="home-label">HOME TIP</div>
+      의자나 계단 위에서 안전하게 한 칸 높이에 올라가 <b>"Let me get down!"</b> 하며 내려오는 역할놀이를 해보세요.
+    </div>
+  </div>
+</div>
+
+<div id="p4" class="tab-content c-purple">
+  <div class="page-card">
+    <div class="page-label">🎨 4 · Paint</div>
+    <div class="day-icon">🎨</div>
+    <div class="word-en">Let me paint!</div>
+    <div class="word-kr">그림 그리게 해줘요!</div>
+    <div class="btn-pair"><button class="word-tts-btn" onclick="speak(this.dataset.t)" data-t="Let me paint!">🔊 /lɛt miː peɪnt/</button></div>
+
+    <div class="section-label">📖 원서 문장</div>
+    <div class="book-box">
+      <div class="book-en">"I never get to do anything!"</div>
+      <div class="book-kr">나는 아무것도 못 하게 하잖아!</div>
+      <button class="book-btn" onclick="speak(this.dataset.t)" data-t="I never get to do anything!">🔊 문장 듣기</button>
+    </div>
+
+    <div class="section-label">🗣️ Say it!</div>
+    <div class="say-box">
+      <div class="say-row">
+        <div class="say-text"><div class="say-en">"Let me paint!"</div><div class="say-kr">내가 칠할래요!</div></div>
+        <button class="say-btn" onclick="speak(this.dataset.t)" data-t="Let me paint!">🔊</button>
+      </div>
+      <div class="say-row">
+        <div class="say-text"><div class="say-en">"Can I paint?"</div><div class="say-kr">그려도 돼요?</div></div>
+        <button class="say-btn" onclick="speak(this.dataset.t)" data-t="Can I paint?">🔊</button>
+      </div>
+    </div>
+
+    <div class="section-label">😀 표정으로 표현해요</div>
+    <div class="scene-box">신나게 붓질하는 시늉을 하다가, 놀라서 눈이 커진 아빠 표정으로 바꿔봐요. 해도 되는지 먼저 물어봐야 한다는 이야기도 나눠보세요.</div>
+
+    <div class="home-box">
+      <div class="home-label">HOME TIP</div>
+      그림을 그리기 전에 <b>"Can I paint?"</b>라고 먼저 물어보는 연습을 해보세요. 허락을 받으면 신나게 <b>"Let me paint!"</b>!
+    </div>
+  </div>
+</div>
+
+<div id="p5" class="tab-content c-blue">
+  <div class="page-card">
+    <div class="page-label">🚪 5 · Get on</div>
+    <div class="day-icon">🚪</div>
+    <div class="word-en">Let me get on!</div>
+    <div class="word-kr">올라타게 해줘요!</div>
+    <div class="btn-pair"><button class="word-tts-btn" onclick="speak(this.dataset.t)" data-t="Let me get on!">🔊 /lɛt miː ɡɛt ɑːn/</button></div>
+
+    <div class="section-label">📖 원서 문장</div>
+    <div class="book-box">
+      <div class="book-en">"Hey, I've got an idea. Let's play 'Drive the Bus'! I'll go first!"</div>
+      <div class="book-kr">야, 좋은 생각이 있어. '버스 운전하기' 놀이하자! 내가 먼저 할게!</div>
+      <button class="book-btn" onclick="speak(this.dataset.t)" data-t="Hey, I&#x27;ve got an idea. Let&#x27;s play &#x27;Drive the Bus&#x27;! I&#x27;ll go first!">🔊 문장 듣기</button>
+    </div>
+
+    <div class="section-label">🗣️ Say it!</div>
+    <div class="say-box">
+      <div class="say-row">
+        <div class="say-text"><div class="say-en">"Let me get on!"</div><div class="say-kr">올라타게 해줘요!</div></div>
+        <button class="say-btn" onclick="speak(this.dataset.t)" data-t="Let me get on!">🔊</button>
+      </div>
+      <div class="say-row">
+        <div class="say-text"><div class="say-en">"I'll go first!"</div><div class="say-kr">내가 먼저 할게!</div></div>
+        <button class="say-btn" onclick="speak(this.dataset.t)" data-t="I&#x27;ll go first!">🔊</button>
+      </div>
+    </div>
+
+    <div class="section-label">😀 표정으로 표현해요</div>
+    <div class="scene-box">두 손으로 난간을 잡고 버스에 올라타는 시늉을 하며 장난기 가득한(naughty) 표정을 지어봐요.</div>
+
+    <div class="home-box">
+      <div class="home-label">HOME TIP</div>
+      쿠션이나 베개 위에 올라타는 놀이를 하며 <b>"Let me get on!"</b>을 외쳐보세요.
+    </div>
+  </div>
+</div>
+
+<div id="p6" class="tab-content c-orange">
+  <div class="page-card">
+    <div class="page-label">🚌 6 · Drive the bus</div>
+    <div class="day-icon">🚌</div>
+    <div class="word-en">Let me drive the bus!</div>
+    <div class="word-kr">버스 운전하게 해줘요!</div>
+    <div class="btn-pair"><button class="word-tts-btn" onclick="speak(this.dataset.t)" data-t="Let me drive the bus!">🔊 /lɛt miː draɪv ðə bʌs/</button></div>
+
+    <div class="section-label">📖 원서 문장</div>
+    <div class="book-box">
+      <div class="book-en">"Vroom-vroom vroomy vroom-vroom! Pigeon at the wheel!"</div>
+      <div class="book-kr">부릉부릉 부르릉! 비둘기가 운전대를 잡았어요!</div>
+      <button class="book-btn" onclick="speak(this.dataset.t)" data-t="Vroom-vroom vroomy vroom-vroom! Pigeon at the wheel!">🔊 문장 듣기</button>
+    </div>
+
+    <div class="section-label">🗣️ Say it!</div>
+    <div class="say-box">
+      <div class="say-row">
+        <div class="say-text"><div class="say-en">"Let me drive the bus!"</div><div class="say-kr">버스 운전하게 해줘요!</div></div>
+        <button class="say-btn" onclick="speak(this.dataset.t)" data-t="Let me drive the bus!">🔊</button>
+      </div>
+      <div class="say-row">
+        <div class="say-text"><div class="say-en">"My dream is to drive a bus."</div><div class="say-kr">내 꿈은 버스를 운전하는 거예요.</div></div>
+        <button class="say-btn" onclick="speak(this.dataset.t)" data-t="My dream is to drive a bus.">🔊</button>
+      </div>
+    </div>
+
+    <div class="section-label">😀 표정으로 표현해요</div>
+    <div class="scene-box">두 손으로 커다란 운전대를 잡고 신나는 표정으로 <b>"Vroom, vroom!"</b>. 아직 어려서 운전할 수 없다는 건 알지만 가슴이 두근두근 설레요!</div>
+
+    <div class="home-box">
+      <div class="home-label">HOME TIP</div>
+      아이에게 <b>"What is your dream?"</b>을 물어보고, <b>"My dream is to ___."</b>로 답해보게 해주세요.
+    </div>
+  </div>
+</div>
+
+<div id="p7" class="tab-content c-green">
+  <div class="page-card">
+    <div class="page-label">🙅 7 · No. Let me do it!</div>
+    <div class="day-icon">🙅</div>
+    <div class="word-en">No. Let me do it!</div>
+    <div class="word-kr">안 돼요, 내가 할래요!</div>
+    <div class="btn-pair"><button class="word-tts-btn" onclick="speak(this.dataset.t)" data-t="No. Let me do it!">🔊 /noʊ. lɛt miː duː ɪt/</button></div>
+
+    <div class="section-label">📖 원서 문장</div>
+    <div class="book-box">
+      <div class="book-en">"No fair! I have dreams, you know!"</div>
+      <div class="book-kr">불공평해! 나도 꿈이 있다고!</div>
+      <button class="book-btn" onclick="speak(this.dataset.t)" data-t="No fair! I have dreams, you know!">🔊 문장 듣기</button>
+    </div>
+
+    <div class="section-label">🗣️ Say it!</div>
+    <div class="say-box">
+      <div class="say-row">
+        <div class="say-text"><div class="say-en">"No. Let me do it!"</div><div class="say-kr">아니야, 내가 할래!</div></div>
+        <button class="say-btn" onclick="speak(this.dataset.t)" data-t="No. Let me do it!">🔊</button>
+      </div>
+      <div class="say-row">
+        <div class="say-text"><div class="say-en">"I have dreams, you know!"</div><div class="say-kr">나도 꿈이 있다고요!</div></div>
+        <button class="say-btn" onclick="speak(this.dataset.t)" data-t="I have dreams, you know!">🔊</button>
+      </div>
+    </div>
+
+    <div class="section-label">😀 표정으로 표현해요</div>
+    <div class="scene-box">팔짱을 끼고 입을 삐죽 내밀며 속상한(upset) 표정으로 <b>"No. Let me do it!"</b> 하고 말해봐요. 화가 났을 때 어떻게 하면 좋을지도 이야기해봐요.</div>
+
+    <div class="home-box">
+      <div class="home-label">HOME TIP</div>
+      아이가 속상해할 때 <b>"How do you feel?"</b>이라고 물어보고, 표정과 말로 마음을 표현하도록 도와주세요.
+    </div>
+  </div>
+</div>
+
+<div id="art" class="tab-content c-yellow">
+  <div class="page-card art-card">
+    <div class="page-label">🎨 8 · Art Activity</div>
+    <h3 style="text-align:center;color:var(--text);font-size:19px;margin-bottom:14px;">Let me drive the bus!</h3>
+
+    <div class="photo-placeholder">🚌<br><span>수업 사진이 들어갈 자리</span></div>
+
+    <div class="section-label">🎨 이번 주 아트 활동: 나만의 버스 만들기</div>
+    <div class="activity-text">
+      <ol>
+        <li>종이를 접어 <b>버스(bus)</b> 모양을 만들고 테이프로 붙여요.</li>
+        <li>화장지 조각, 크레용, 물감으로 자유롭게 <b>꾸며요(decorate)</b>.</li>
+        <li><b>운전사(driver)</b>와 승객을 그리고 색칠해서 <b>창문(window)</b>을 만들어요.</li>
+        <li>창문을 오려서 버스에 <b>붙이고(glue)</b>, <b>바퀴(wheel)</b>를 달아요.</li>
+        <li>완성한 버스를 들고 <b>"Let me drive the bus!"</b>를 외쳐요.</li>
+      </ol>
+    </div>
+
+    <div class="section-label">🔤 활동 속 단어</div>
+    <div class="word-bank">
+      <span class="word-chip" onclick="speak('bus')">🚌 bus</span>
+      <span class="word-chip" onclick="speak('driver')">🧑‍✈️ driver</span>
+      <span class="word-chip" onclick="speak('window')">🪟 window</span>
+      <span class="word-chip" onclick="speak('wheel')">🛞 wheel</span>
+      <span class="word-chip" onclick="speak('glue')">🧴 glue</span>
+      <span class="word-chip" onclick="speak('decorate')">✨ decorate</span>
+    </div>
+    <div class="chip-note">칩을 누르면 소리를 들을 수 있어요</div>
+
+    <div class="section-label">🗣️ Say it!</div>
+    <div class="say-box">
+      <div class="say-row">
+        <div class="say-text"><div class="say-en">"Let me drive the bus!"</div><div class="say-kr">버스 운전하게 해줘요!</div></div>
+        <button class="say-btn" onclick="speak(this.dataset.t)" data-t="Let me drive the bus!">🔊</button>
+      </div>
+      <div class="say-row">
+        <div class="say-text"><div class="say-en">"Let's glue the windows!"</div><div class="say-kr">창문을 붙이자!</div></div>
+        <button class="say-btn" onclick="speak(this.dataset.t)" data-t="Let&#x27;s glue the windows!">🔊</button>
+      </div>
+      <div class="say-row">
+        <div class="say-text"><div class="say-en">"Don't let the pigeon drive the bus!"</div><div class="say-kr">비둘기가 버스를 운전하게 하지 마세요!</div></div>
+        <button class="say-btn" onclick="speak(this.dataset.t)" data-t="Don&#x27;t let the pigeon drive the bus!">🔊</button>
+      </div>
+    </div>
+
+    <div class="home-box">
+      <div class="home-label">HOME TIP</div>
+      우유갑이나 작은 상자로 버스를 만들고 가족 그림을 창문에 붙여보세요. 완성한 뒤 <b>"Let me drive the bus!"</b>를 외치며 달리는 놀이로 이어가면 좋아요.
+    </div>
+
+    <div class="closing-quote">"Don't let the pigeon drive the bus!"</div>
+  </div>
+</div>
+
+<footer>
+  © 에릭칼아트잉글리쉬 동탄기산 스튜디오 |<br>
+  본 자료는 수강생 전용입니다. 무단 복제 및 배포를 금합니다.<br>
+  Home Literacy Card — Don't Let the Pigeon Drive the Bus!
+</footer>
+
+<script>
+let audioCtx;
+let unlocked = false;
+
+function unlockAudio(){
+  if(unlocked) return;
+  try{
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    const buffer = audioCtx.createBuffer(1,1,22050);
+    const source = audioCtx.createBufferSource();
+    source.buffer = buffer;
+    source.connect(audioCtx.destination);
+    source.start(0);
+    audioCtx.resume();
+    unlocked = true;
+  }catch(e){console.log('audio unlock fail', e);}
+}
+document.addEventListener('touchstart', unlockAudio, {once:true});
+document.addEventListener('click', unlockAudio, {once:true});
+
+function pickVoice(){
+  const voices = speechSynthesis.getVoices();
+  const priority = ['Samantha','Google US English','Microsoft Aria','Microsoft Jenny'];
+  for(const name of priority){
+    const v = voices.find(v=>v.name.includes(name));
+    if(v) return v;
+  }
+  return voices.find(v=>v.lang==='en-US') || null;
+}
+
+function speak(text){
+  if(audioCtx && audioCtx.state === 'suspended'){
+    audioCtx.resume();
+  }
+  const utter = new SpeechSynthesisUtterance(text);
+  utter.lang = 'en-US';
+  utter.rate = 0.85;
+  const v = pickVoice();
+  if(v) utter.voice = v;
+  speechSynthesis.cancel();
+  speechSynthesis.speak(utter);
+}
+
+function showTab(id, btn){
+  document.querySelectorAll('.tab-content').forEach(el=>el.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(el=>el.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+
+window.addEventListener('load', function(){
+  const h = location.hash.replace('#','');
+  if(h){
+    const b = document.querySelector('[data-tab="'+h+'"]');
+    if(b) b.click();
+  }
+});
+</script>
+
+</body>
+</html>
